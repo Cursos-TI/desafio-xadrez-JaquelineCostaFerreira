@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main() {
     // Movimento da Torre - usando for
     int casas_torre = 5;
