@@ -1,46 +1,53 @@
 #include <stdio.h>
 
+// Função recursiva para mover a Torre
+void mover_torre(int casas) {
+    if (casas == 0) return;
+    printf("Direita\n");
+    mover_torre(casas - 1);
+}
+
+// Função recursiva para mover o Bispo
+void mover_bispo(int casas, int mov_vertical) {
+    if (casas == 0) return;
+    for (int i = 0; i < mov_vertical; i++) {
+        printf("Cima Direita\n");
+    }
+    mover_bispo(casas - 1, mov_vertical);
+}
+
+// Função recursiva para mover a Rainha
+void mover_rainha(int casas) {
+    if (casas == 0) return;
+    printf("Esquerda\n");
+    mover_rainha(casas - 1);
+}
+
 int main() {
-    // Movimento da Torre - usando for
-    int casas_torre = 5;
+    // Movimento da Torre
     printf("Movimento da Torre:\n");
-    for (int i = 0; i < casas_torre; i++) {
+    mover_torre(5);
+    printf("\n");
+
+    // Movimento do Bispo (com recursão e loops aninhados)
+    printf("Movimento do Bispo:\n");
+    mover_bispo(5, 1);
+    printf("\n");
+
+    // Movimento da Rainha
+    printf("Movimento da Rainha:\n");
+    mover_rainha(8);
+    printf("\n");
+
+    // Movimento do Cavalo com loops aninhados
+    printf("Movimento do Cavalo:\n");
+    for (int i = 0; i < 2; i++) { // Duas casas para cima
+        printf("Cima\n");
+    }
+    for (int j = 0; j < 1; j++) { // Uma casa para a direita
         printf("Direita\n");
     }
-    printf("\n");
-
-    // Movimento do Bispo - usando while
-    int casas_bispo = 5;
-    int contador = 0;
-    printf("Movimento do Bispo:\n");
-    while (contador < casas_bispo) {
-        printf("Cima Direita\n");
-        contador++;
-    }
-    printf("\n");
-
-    // Movimento da Rainha - usando do-while
-    int casas_rainha = 8;
-    int contador_rainha = 0;
-    printf("Movimento da Rainha:\n");
-    do {
-        printf("Esquerda\n");
-        contador_rainha++;
-    } while (contador_rainha < casas_rainha);
-    printf("\n");
-
-    // Movimento do Cavalo - usando for e while
-    printf("Movimento do Cavalo:\n");
-    int i;
-    for (i = 0; i < 2; i++) { // Duas casas para baixo
-        printf("Baixo\n");
-    }
-    int j = 0;
-    while (j < 1) { // Uma casa para a esquerda
-        printf("Esquerda\n");
-        j++;
-    }
-
+    
     return 0;
 }
 
